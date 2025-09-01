@@ -65,6 +65,11 @@ body {
   text-transform: uppercase;
   border-top: 1px dotted #000;
   border-bottom: 1px dotted #000;
+  color: #B0B8BF;
+}
+
+.secondary-nav a.active {
+  color: #4682B4;
 }
 
 .nav-left, .nav-right {
