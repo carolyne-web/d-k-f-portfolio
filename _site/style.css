@@ -228,3 +228,51 @@ body {
 .project-footer ul a:hover {
   color: var(--primary-blue);
 }
+
+.about-intro {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.brand-list ul {
+  list-style: none !important;
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5
+}
+
+.awards-list {
+  font-family: 'HelveticaNeue Light';
+  /* margin-top: 2.5rem; */
+}
+
+.awards-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 2.5rem;
+}
+
+.award-category {
+  margin-bottom: 1.5rem;
+}
+
+.award-title {
+  font-family: 'HelveticaNeue Medium';
+  color: var(--text-dark-gray);
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.award-category ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.award-category li {
+  padding: 0.2rem 0;
+  line-height: 1.4;
+}
