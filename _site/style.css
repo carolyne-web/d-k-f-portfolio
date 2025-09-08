@@ -12,6 +12,15 @@
   font-style: normal;
 }
 
+:root {
+  /* Color Variables */
+  --primary-blue: #4682B4;
+  --text-black: #000;
+  --text-gray: #B0B8BF;
+  --text-dark-gray: #404040;
+  --border-gray: #ccc;
+}
+
 /* Base grid styles */
 .image-grid {
   display: grid;
@@ -25,7 +34,7 @@
   overflow: hidden;
   cursor: pointer;
 
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-gray);
   text-align: center;
 }
 
@@ -51,7 +60,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #000;
+  background-color: var(--text-black);
   color: white;
   display: flex;
   align-items: center;
@@ -94,7 +103,7 @@ body {
 }
 
 .header-subtext {
-    color:#4682B4;
+    color: var(--primary-blue);
     font-size: 0.9rem;
     padding: 0 0.2rem;
     /* FF4500; */
@@ -103,9 +112,9 @@ body {
 /* Secondary nav grid */
 .secondary-nav {
   padding: 0.75rem 1rem;
-  border-top: 1px dotted #000;
-  border-bottom: 1px dotted #000;
-  color: #B0B8BF;
+  border-top: 1px dotted var(--text-black);
+  border-bottom: 1px dotted var(--text-black);
+  color: var(--text-gray);
 }
 
 .secondary-nav a {
@@ -115,11 +124,15 @@ body {
 }
 
 .secondary-nav a.active {
-  color: #000;
+  color: var(--text-black);
 }
 
 .secondary-nav a:hover {
-  color: #000;
+  color: var(--text-black);
+}
+
+.work-list .active {
+  color: var(--primary-blue);
 }
 
 .nav-left, .nav-right {
@@ -149,17 +162,69 @@ body {
 /* project pages */
 
 .content-grid {
-  padding: 0.75rem 1rem;
+  padding: 2.5rem 1rem;
 }
 
 .project-info {
   display: grid;
-  grid-template-columns: 1fr; /* mobile: 1 column */
+  grid-template-columns: 1fr;
   gap: 16px;
 }
 
 @media (min-width: 768px) {
   .project-info {
-    grid-template-columns: repeat(2, 1fr); /* desktop: 2 columns */
+    grid-template-columns: repeat(2, 1fr); 
   }
+}
+
+.project-headings {
+  color: var(--text-dark-gray);
+}
+
+.project-content {
+  font-family: 'HelveticaNeue Light';
+}
+
+.info-header {
+  font-family: 'HelveticaNeue Medium';
+  color: var(--text-dark-gray);
+}
+
+.video-block {
+  margin-top: 2.5rem;
+}
+
+.vid-content {
+  padding: 1.5rem 5rem;
+}
+
+.recognition-list {
+  list-style: none;
+  line-height: 1.6;
+  padding: 0;
+}
+
+.project-footer {
+  border-top: 1px dotted var(--text-black);
+  color: var(--text-gray);
+  margin-top: 2.5rem;
+  padding-top: 2.5rem;
+}
+
+.project-footer ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  text-decoration: none;
+}
+
+.project-footer ul a {
+  color: inherit;   
+  text-decoration: none;
+}
+
+.project-footer ul a:hover {
+  color: var(--primary-blue);
 }
