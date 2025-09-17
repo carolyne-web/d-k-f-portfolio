@@ -9,17 +9,31 @@
 <body>
 
   <!-- Top navigation -->
-  <header class="top-nav">
-    <span class= "main-header" style="font-size: 2rem;">Daniel Fisher</span>
-    <span class= "header-subtext">/ Creative Director</span>
-  </header>
-
-  <!-- Secondary navigation -->
-  <nav class="secondary-nav">
-      <a href="/">/ Work</a>
-      <a href="/about" class="active">/ About</a>
-      <a href="/projects">/ Personal Projects</a>
+  <nav class="site-nav">
+    <div class="head-left">
+      <span class= "main-header">Daniel Fisher</span>
+      <span class= "header-subtext">Creative Director / cw</span>
+    </div>
+    <div class="head-right">
+      <a href="/">_work</a>
+      <a href="/about" class="active">_about</a>
+      <a href="/projects">_personal projects</a>
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </nav>
+
+  <!-- Mobile menu overlay -->
+  <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+    <div class="mobile-menu-content">
+      <a href="/">_work</a>
+      <a href="/about" class="active">_about</a>
+      <a href="/projects">_personal projects</a>
+    </div>
+  </div>
 
   <!-- Main content -->
   <main class="content-grid">
@@ -33,118 +47,34 @@
           </p>
         </div>
         
-        <div class="about-intro">
+        <div class="rational">
           <p>
-            <!-- Creative Director and strategist with a passion for creating compelling campaigns that resonate with audiences. 
+            Creative Director and strategist with a passion for creating compelling campaigns that resonate with audiences. 
             Experienced in developing brand narratives and executing creative concepts across multiple platforms.
           </p>
           <p>
             Currently working on innovative advertising solutions that challenge conventional approaches and deliver 
-            measurable results for clients across various industries. -->
-            I was a naughty kid. 
-            Always disrupting the peace. 
-            Always in trouble. 
-            But always top of mind. 
-
-            I’m now 30 years old and a lot better behaved. Mostly. 
-            But I’ve kept that energy in my work. 
-            If I’m not trying to make something disruptive, I ask myself what am I doing. 
-
-            I realise every creative person is saying the same thing. 
-            But let’s work together and I’ll show you how I’m different. 
+            measurable results for clients across various industries.
           </p>
         </div>
-        <div class="info-header">
-          brands i've worked on:
-        </div>
-        <div class="brand-list">
-          <ul>
-            <li>
-              Uber
-            </li>
-            <li>
-              Uber Eats 
-            </li>
-            <li>
-              VW
-            </li>
-            <li>
-              KFC
-            </li>
-            <li>  
-              AB InBev 
-            </li>
-            <li>
-              Clorrets
-            </li>
-            <li>
-              Mondelez (Clorets Chewing Gum) 
-            </li>
-          </ul>
-        </div>
-        <div class="info-header">
-          experience:
-        </div>
-        <div>
-          10 years 
-        </div>
       </div>
-      <div class="awards-section">
-          <div class="info-header">
-          awards:
-        </div style="margin-top: 2.5rem;">
-          <div class="awards-list">
-          <div class="award-category">
-            <div class="award-title">CANNES:</div>
-            <ul>
-              <li>Bronze Campaign Audio and Radio - script/writing</li>
-              <li>3 x shortlists</li>
-            </ul>
-          </div>
-
-          <div class="award-category">
-            <div class="award-title">ONE SHOW:</div>
-            <ul>
-              <li>Bronze - use of humour</li>
-              <li>Bronze - Script</li>
-              <li>Merit - radio and audio series</li>
-            </ul>
-          </div>
-
-          <div class="award-category">
-            <div class="award-title">LOERIES:</div>
-              <ul>
-                <li>Gold Campaign Radio</li>
-                <li>Bronze Film</li>
-                <li>Bronze Radio Campaign</li>
-                <li>Bronze Youtube Campaign</li>
-                <li>Writing certificate - writing</li>
-                <li>Bronze youtube banner campaign - Clorets 6s Bumper ads</li>
-              </ul>
-            </div>
-            <div class="award-category">
-              <div class="award-title">CREATIVE CIRCLE:</div>
-              <ul>
-                <li>Ad of the year Radio and Audio - third place</li>
-                <li>Ad of the month - second Hansa</li>
-                <li>Ad of the month - first Film</li>
-                <li>Ad of the month - third Engen radio</li>
-                <li>Ad of the month second - Uber Eats "Midnight Groceries"</li>
-                <li>Ad of the month third - Uber One</li>
-                <li>Ad of the month - third Uber Black</li>
-              </ul>
-            </div>
-            <div class="award-category">
-              <div class="award-title">ASSEGAI:</div>
-              <ul>
-                <li>Gold campaign</li>
-                <li>Gold campaign</li>
-                <li>Gold Integrated campaign - Clorets Breathe Out Proudly Campaign</li>
-              </ul>
-            </div>
-          </div>
-        </div>
     </section>
   </main>
+
+  <script>
+    // Mobile hamburger menu functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+      
+      if (hamburger && mobileMenuOverlay) {
+        hamburger.addEventListener('click', function() {
+          hamburger.classList.toggle('active');
+          mobileMenuOverlay.classList.toggle('active');
+        });
+      }
+    });
+  </script>
+
 </body>
 </html>

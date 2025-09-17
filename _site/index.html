@@ -9,17 +9,31 @@
 <body>
 
   <!-- Top navigation -->
-  <header class="top-nav">
-    <span class= "main-header" style="font-size: 2rem;">Daniel Fisher</span>
-    <span class= "header-subtext">/ Creative Director</span>
-  </header>
-
-  <!-- Secondary navigation -->
-  <nav class="secondary-nav">
-      <a href="/" class="active">/ Work</a>
-      <a href="/about">/ About</a>
-      <a href="/projects">/ Personal Projects</a>
+  <nav class="site-nav">
+    <div class="head-left">
+      <span class= "main-header">Daniel Fisher</span>
+      <span class= "header-subtext">Creative Director / cw</span>
+    </div>
+    <div class="head-right">
+      <a href="/" class="active">_work</a>
+      <a href="/about">_about</a>
+      <a href="/projects">_personal projects</a>
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </nav>
+
+  <!-- Mobile menu overlay -->
+  <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+    <div class="mobile-menu-content">
+      <a href="/" class="active">_work</a>
+      <a href="/about">_about</a>
+      <a href="/projects">_personal projects</a>
+    </div>
+  </div>
   <!-- Main content -->
   <main class="content-grid">
       <section class="image-grid">
@@ -57,6 +71,21 @@
 
 
   </main>
+
+  <script>
+    // Mobile hamburger menu functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+      
+      if (hamburger && mobileMenuOverlay) {
+        hamburger.addEventListener('click', function() {
+          hamburger.classList.toggle('active');
+          mobileMenuOverlay.classList.toggle('active');
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>
