@@ -25,7 +25,7 @@
 
 :root {
   /* Color Variables */
-  --primary-orange: #FF4500;
+  --primary-orange: #F07530;
   --text-black: #222;
   --text-gray: #B0B8BF;
   --text-dark-gray: #404040;
@@ -119,6 +119,10 @@ body {
   padding: 0rem 1rem 1rem;
   text-transform: uppercase;
   font-size: 0.8rem;
+}
+
+.header-subtext {
+  color: var(--primary-orange);
 }
 
 .header-subtext {
@@ -322,22 +326,23 @@ body {
 }
 
 .video-div {
-  padding: 0vw 3vw;
+  padding: 2vw 3vw;
 }
 
 .recognition {
-  padding: 0vw 3vw;
+  padding: 0 3vw;
 }
 
 .recognition-list {
   list-style: none;
-  line-height: 1.8;
+  line-height: 1.6;
   padding: 0;
 }
 
 .project-footer {
-  color: var(--text-gray);
-  padding: 2vw 3vw;
+  color: var(--primary-orange);
+  margin-top: 2.5rem;
+  padding-top: 2.5rem;
 }
 
 .project-footer ul {
