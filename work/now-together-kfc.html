@@ -1,6 +1,6 @@
----
+<!-- ---
 permalink: /work/now-together-kfc/
----
+--- -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +22,21 @@ permalink: /work/now-together-kfc/
       <a href="../about.html">_about</a>
       <a href="../projects.html">_personal projects</a>
     </div>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </nav>
+
+  <!-- Mobile menu overlay -->
+  <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+    <div class="mobile-menu-content">
+      <a href="../index.html" class="active">_work</a>
+      <a href="../about.html">_about</a>
+      <a href="../projects.html">_personal projects</a>
+    </div>
+  </div>
 
   <!-- Main content -->
   <main class="content-grid">
@@ -79,8 +93,8 @@ permalink: /work/now-together-kfc/
               radio song:
             </span>
           </p>
-            <div class="vid-content">
-              <video width="100%" height="auto" controls>
+            <div class="audio-content">
+              <video width="100%" controls style="height: 50px;">
                 <source src="https://www.dropbox.com/scl/fi/gqc2hdmywiebiaz72ps3j/Radio-song.mp4?rlkey=aqnqu1xihw7d73ljmm04gr3k7&st=7v7tdg45&raw=1" type="video/mp4">
               Your browser does not support the video tag.
               </video>
@@ -128,6 +142,21 @@ permalink: /work/now-together-kfc/
       </div>
     </section>
   </main>
+
+  <script>
+    // Mobile hamburger menu functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+      if (hamburger && mobileMenuOverlay) {
+        hamburger.addEventListener('click', function() {
+          hamburger.classList.toggle('active');
+          mobileMenuOverlay.classList.toggle('active');
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>

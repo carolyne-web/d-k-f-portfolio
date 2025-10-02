@@ -92,7 +92,7 @@ p {
   opacity: 0;
   transition: opacity 400ms cubic-bezier(.33,0,.2,1);
   font-size: 16px;
-  padding: 20px;
+  /* padding: 20px; */
   /* backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px); */
   font-family: 'HelveticaNeue Medium';

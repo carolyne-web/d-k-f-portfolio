@@ -22,7 +22,21 @@ permalink: /work/what-you-cant-get-engen/
       <a href="../about.html">_about</a>
       <a href="../projects.html">_personal projects</a>
     </div>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </nav>
+
+  <!-- Mobile menu overlay -->
+  <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+    <div class="mobile-menu-content">
+      <a href="../index.html" class="active">_work</a>
+      <a href="../about.html">_about</a>
+      <a href="../projects.html">_personal projects</a>
+    </div>
+  </div>
 
   <!-- Main content -->
   <main class="content-grid">
@@ -133,6 +147,21 @@ permalink: /work/what-you-cant-get-engen/
 
     </section>
   </main>
+
+  <script>
+    // Mobile hamburger menu functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+      if (hamburger && mobileMenuOverlay) {
+        hamburger.addEventListener('click', function() {
+          hamburger.classList.toggle('active');
+          mobileMenuOverlay.classList.toggle('active');
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>
