@@ -128,10 +128,14 @@ img[loading="lazy"].loaded {
   opacity: 0;
   transition: opacity 400ms cubic-bezier(.33,0,.2,1);
   font-size: 16px;
-  /* padding: 20px; */
-  /* backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px); */
   font-family: 'HelveticaNeue Medium';
+  pointer-events: none;
+}
+
+/* Touch/mobile overlay states */
+.grid-item.show-overlay::after {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .grid-item:hover::after {

@@ -114,6 +114,49 @@
           img.classList.add('loaded');
         });
       }
+
+      // Touch/mobile overlay functionality for grid items
+      const gridItems = document.querySelectorAll('.grid-item');
+
+      gridItems.forEach(item => {
+        let tapTimeout;
+
+        item.addEventListener('touchstart', function(e) {
+          // Clear any existing timeout
+          clearTimeout(tapTimeout);
+        });
+
+        item.addEventListener('touchend', function(e) {
+          e.preventDefault();
+
+          // Check if overlay is already showing
+          if (this.classList.contains('show-overlay')) {
+            // Second tap - navigate to the link
+            window.location.href = this.href;
+          } else {
+            // First tap - show overlay
+            // Hide all other overlays first
+            gridItems.forEach(otherItem => {
+              otherItem.classList.remove('show-overlay');
+            });
+
+            // Show this overlay
+            this.classList.add('show-overlay');
+
+            // Auto-hide after 3 seconds
+            tapTimeout = setTimeout(() => {
+              this.classList.remove('show-overlay');
+            }, 3000);
+          }
+        });
+
+        // Hide overlay when touching outside
+        document.addEventListener('touchstart', function(e) {
+          if (!item.contains(e.target)) {
+            item.classList.remove('show-overlay');
+          }
+        });
+      });
     });
   </script>
 
