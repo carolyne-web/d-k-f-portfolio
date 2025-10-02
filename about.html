@@ -1,6 +1,6 @@
----
+<!-- ---
 permalink: /about/
----
+--- -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,26 +41,72 @@ permalink: /about/
   <!-- Main content -->
   <main class="content-grid">
     <section class="project-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
-      <div class="about-image" style="order: 1;">
-        <img src="assets/thumbnails/About Image.JPG" alt="Daniel Fisher" style="width: 100%; height: auto; display: block;">
+      <!-- Spotify Mobile-style Player (Left Side) -->
+      <div class="spotify-mobile-player">
+        <!-- Album Art -->
+        <div class="album-art-large" style="box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+          <img src="assets/thumbnails/About Image.JPG" alt="Daniel Fisher">
+        </div>
+
+        <!-- Track Info -->
+        <div class="track-info-mobile" style="text-align: left; width: 100%;">
+          <h3>About Me</h3>
+          <p>Daniel Fisher</p>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-container-mobile">
+          <div class="progress-bar-mobile" id="progressBar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <div class="time-stamps">
+            <span id="currentTime">0:00</span>
+            <span id="duration">0:00</span>
+          </div>
+        </div>
+
+        <!-- Main Controls -->
+        <div class="controls-mobile">
+          <!-- Previous -->
+          <button class="control-btn" id="prevBtn">
+            <svg width="50" height="50" viewBox="0 0 24 24">
+              <path d="M6 6h2v12H6V6zm3.5 6l8.5 6V6l-8.5 6z"/>
+            </svg>
+          </button>
+
+          <!-- Play/Pause -->
+          <button id="playPauseBtn" class="play-btn-mobile" style="box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+            <svg id="playIcon" width="40" height="40" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            <svg id="pauseIcon" width="40" height="40" viewBox="0 0 24 24" style="display:none;">
+              <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+            </svg>
+          </button>
+
+          <!-- Next -->
+          <button class="control-btn" id="nextBtn">
+            <svg width="50" height="50" viewBox="0 0 24 24">
+              <path d="M6 18l8.5-6L6 6v12zm10-12v12h2V6h-2z"/>
+            </svg>
+          </button>
+        </div>
+
+
+        <!-- Audio -->
+        <audio id="aboutAudio" preload="metadata">
+          <source src="assets/Daniel Website mp3 final.mp3" type="audio/mpeg">
+        </audio>
       </div>
+
+      <!-- Text Content (Right Side) -->
       <div class="about-text" style="order: 2;">
         <div class="about-content">
           <p>
-            I was a naughty kid.<br>
-            Always disrupting the peace.<br>
-            Always in trouble.<br>
-            But always top of mind.
+            <span class="info-header">hello!:</span>
           </p>
           <p>
-            I'm now 30 years old and a lot better behaved. Mostly.<br>
-            But I've kept that energy in my work.<br>
-            If I'm not trying to make something disruptive, I ask myself what am I doing.
-          </p>
-          <p>
-            I realise every creative person is saying the same thing.<br>
-            But let's work together and I'll show you how I'm different.<br>
-            Based in south africa
+            i really tried writing a paragraph about myself in the third person… i made an audio clip instead. Have a listen.
           </p>
 
           <div style="margin-top: 40px;">
@@ -155,18 +201,110 @@ permalink: /about/
     </section>
   </main>
 
+  <style>
+    .play-btn-mobile:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3) !important;
+    }
+
+    .control-btn:hover {
+      transform: scale(1.1);
+      transition: all 0.2s ease;
+    }
+
+    .control-btn:hover svg {
+      fill: white !important;
+    }
+
+    .progress-bar-mobile:hover #progressFill {
+      background: rgba(255,255,255,0.9) !important;
+    }
+
+    @media (max-width: 768px) {
+      .project-content {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+
+      .album-art-large {
+        width: 150px !important;
+        height: 150px !important;
+      }
+
+      .spotify-mobile-player {
+        padding: 24px !important;
+      }
+    }
+  </style>
+
   <script>
     // Mobile hamburger menu functionality
     document.addEventListener('DOMContentLoaded', function() {
       const hamburger = document.getElementById('hamburger');
       const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-      
+
       if (hamburger && mobileMenuOverlay) {
         hamburger.addEventListener('click', function() {
           hamburger.classList.toggle('active');
           mobileMenuOverlay.classList.toggle('active');
         });
       }
+
+      // Spotify-style Audio Player functionality
+      const audio = document.getElementById("aboutAudio");
+      const playPauseBtn = document.getElementById("playPauseBtn");
+      const playIcon = document.getElementById("playIcon");
+      const pauseIcon = document.getElementById("pauseIcon");
+      const progressBar = document.getElementById("progressBar");
+      const progressFill = document.getElementById("progressFill");
+      const currentTimeEl = document.getElementById("currentTime");
+      const durationEl = document.getElementById("duration");
+      let isPlaying = false;
+
+      // Format time mm:ss
+      function formatTime(time) {
+        const minutes = Math.floor(time / 60);
+        const seconds = Math.floor(time % 60).toString().padStart(2, "0");
+        return `${minutes}:${seconds}`;
+      }
+
+      // Play/pause toggle
+      playPauseBtn.addEventListener("click", () => {
+        if (isPlaying) {
+          audio.pause();
+        } else {
+          audio.play();
+        }
+      });
+
+      audio.addEventListener("play", () => {
+        isPlaying = true;
+        playIcon.style.display = "none";
+        pauseIcon.style.display = "block";
+      });
+
+      audio.addEventListener("pause", () => {
+        isPlaying = false;
+        playIcon.style.display = "block";
+        pauseIcon.style.display = "none";
+      });
+
+      // Progress update
+      audio.addEventListener("timeupdate", () => {
+        const { currentTime, duration } = audio;
+        progressFill.style.width = `${(currentTime / duration) * 100}%`;
+        currentTimeEl.textContent = formatTime(currentTime);
+        if (duration) durationEl.textContent = formatTime(duration);
+      });
+
+      // Seek
+      progressBar.addEventListener("click", (e) => {
+        const width = progressBar.clientWidth;
+        const clickX = e.offsetX;
+        const duration = audio.duration;
+        audio.currentTime = (clickX / width) * duration;
+      });
+
     });
   </script>
 
