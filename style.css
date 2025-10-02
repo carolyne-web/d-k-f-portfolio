@@ -25,7 +25,7 @@
 
 :root {
   /* Color Variables */
-  --primary-orange: #F07530;
+  --primary-orange: #ff4500;
   --text-black: #222;
   --text-gray: #B0B8BF;
   --text-dark-gray: #404040;
@@ -41,6 +41,9 @@
 }
 
 /* Base grid styles */
+p {
+  line-height: 1.3;
+}
 
 .image-grid {
   display: grid;
