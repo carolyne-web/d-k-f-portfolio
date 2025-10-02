@@ -38,6 +38,7 @@
   line-height: 1.1em;
   letter-spacing: -.06em;
   color: var(--text-black);
+  text-decoration: none;
 }
 
 /* Base grid styles */
@@ -495,6 +496,52 @@ body {
 
     .play-btn-mobile svg {
       fill: #1db954;
+    }
+
+    .tooltip-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .tooltip {
+      visibility: hidden;
+      width: 70px;
+      background: linear-gradient(135deg, #1db954, #1ed760);
+      color: white;
+      text-align: center;
+      border-radius: 20px;
+      padding: 8px 12px;
+      position: absolute;
+      z-index: 1000;
+      bottom: 120%;
+      left: 50%;
+      margin-left: -35px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      box-shadow: 0 8px 25px rgba(29, 185, 84, 0.3);
+      font-family: 'HelveticaNeue Medium', Arial, sans-serif;
+    }
+
+    .tooltip::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -6px;
+      border-width: 6px;
+      border-style: solid;
+      border-color: #1db954 transparent transparent transparent;
+      filter: drop-shadow(0 2px 4px rgba(29, 185, 84, 0.2));
+    }
+
+    .tooltip-container:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .bottom-controls {

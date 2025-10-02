@@ -7,20 +7,20 @@ permalink: /about/
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About | Daniel Fisher</title>
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <!-- Top navigation -->
   <nav class="site-nav">
     <div class="head-left">
-      <span class= "main-header">Daniel Fisher</span>
+      <a href="index.html" class="main-header">Daniel Fisher</a>
       <span class= "header-subtext">Creative Director / cw</span>
     </div>
     <div class="head-right">
-      <a href="/">_work</a>
-      <a href="/about" class="active">_about</a>
-      <a href="/projects">_personal projects</a>
+      <a href="index.html">_work</a>
+      <a href="about.html" class="active">_about</a>
+      <a href="projects.html">_personal projects</a>
     </div>
     <div class="hamburger" id="hamburger">
       <span></span>
@@ -32,9 +32,9 @@ permalink: /about/
   <!-- Mobile menu overlay -->
   <div class="mobile-menu-overlay" id="mobile-menu-overlay">
     <div class="mobile-menu-content">
-      <a href="/">_work</a>
-      <a href="/about" class="active">_about</a>
-      <a href="/projects">_personal projects</a>
+      <a href="index.html">_work</a>
+      <a href="about.html" class="active">_about</a>
+      <a href="projects.html">_personal projects</a>
     </div>
   </div>
 
@@ -75,14 +75,17 @@ permalink: /about/
           </button>
 
           <!-- Play/Pause -->
-          <button id="playPauseBtn" class="play-btn-mobile" style="box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
-            <svg id="playIcon" width="40" height="40" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z"/>
-            </svg>
-            <svg id="pauseIcon" width="40" height="40" viewBox="0 0 24 24" style="display:none;">
-              <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
-            </svg>
-          </button>
+          <div class="tooltip-container">
+            <button id="playPauseBtn" class="play-btn-mobile" style="box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+              <svg id="playIcon" width="40" height="40" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+              <svg id="pauseIcon" width="40" height="40" viewBox="0 0 24 24" style="display:none;">
+                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+              </svg>
+            </button>
+            <span class="tooltip">play me</span>
+          </div>
 
           <!-- Next -->
           <button class="control-btn" id="nextBtn">
@@ -103,7 +106,7 @@ permalink: /about/
       <div class="about-text" style="order: 2;">
         <div class="about-content">
           <p>
-            <span class="info-header">hello!:</span>
+            <span class="info-header">hello!</span>
           </p>
           <p>
             i really tried writing a paragraph about myself in the third person… i made an audio clip instead. Have a listen.
