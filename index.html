@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio</title>
+  <link rel="preload" href="fonts/HelveticaNeue Medium.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/HelveticaNeue Light.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/Helvetica Neu Bold.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -38,34 +41,34 @@
   <main class="content-grid">
       <section class="image-grid">
         <a href="work/theres-a-beer-for-you-hansa-pilsener.html" class="grid-item" data-text="there's a beer for you - hansa pilsener">
-          <img src="assets/thumbnails/Hansa radio 1 thumbnail.png" alt="There's a beer for you - Hansa Pilsener Thumbnail">
+          <img src="assets/thumbnails/Hansa radio 1 thumbnail.png" alt="There's a beer for you - Hansa Pilsener Thumbnail" loading="lazy">
         </a>
         <a href="work/too-good-not-to-tell-someone-uber-one.html" class="grid-item" data-text="too good not to tell someone - uber one">
-          <img src="assets/thumbnails/Uber One Thumbnail.png" alt="Too good not to tell someone - Uber One Thumbnail">
+          <img src="assets/thumbnails/Uber One Thumbnail.png" alt="Too good not to tell someone - Uber One Thumbnail" loading="lazy">
         </a>
         <a href="work/have-they-skipped-hansa-pilsener.html" class="grid-item" data-text="have they skipped? - hansa pilsener">
-          <img src="assets/thumbnails/Hansa Thumbnail.png" alt="Have they skipped? - Hansa Pilsener Thumbnail">
+          <img src="assets/thumbnails/Hansa Thumbnail.png" alt="Have they skipped? - Hansa Pilsener Thumbnail" loading="lazy">
         </a>
         <a href="work/what-you-cant-get-engen.html" class="grid-item" data-text="what you can't get - engen">
-          <img src="assets/thumbnails/What you can’t get Engen Thumbnail.png" alt="What you can't get - Engen Thumbnail">
+          <img src="assets/thumbnails/What you can’t get Engen Thumbnail.png" alt="What you can't get - Engen Thumbnail" loading="lazy">
         </a>
         <a href="work/the-brash-effect-brash.html" class="grid-item" data-text="the brash effect - brash">
-          <img src="assets/thumbnails/The Brash Effect Brash Thumbnail.png" alt="The brash effect - Brash Thumbnail">
+          <img src="assets/thumbnails/The Brash Effect Brash Thumbnail.png" alt="The brash effect - Brash Thumbnail" loading="lazy">
         </a>
         <a href="work/breathe-out-proudly-clorets.html" class="grid-item" data-text="breathe out proudly - clorets">
-          <img src="assets/thumbnails/Breathe Out Proudly Clorets Thumbnail.png" alt="Breathe out proudly - Clorets Thumbnail">
+          <img src="assets/thumbnails/Breathe Out Proudly Clorets Thumbnail.png" alt="Breathe out proudly - Clorets Thumbnail" loading="lazy">
         </a>
         <a href="work/so-good-youll-find-a-reason-uber-black.html" class="grid-item" data-text="So good you'll find a reason - uber black">
-          <img src="assets/thumbnails/So Good You’ll Find a Reason Uber Black Thumbnail .png" alt="So good you'll find a reason - Uber Black Thumbnail">
+          <img src="assets/thumbnails/So Good You’ll Find a Reason Uber Black Thumbnail .png" alt="So good you'll find a reason - Uber Black Thumbnail" loading="lazy">
         </a>
         <a href="work/you-deserve-a-beer-hansa-pilsener.html" class="grid-item" data-text="You deserve a beer - hansa pilsener">
-          <img src="assets/thumbnails/You Deserve a Beer Hansa Pilsener Hansa Radio 2 Thumbnail.png" alt="You deserve a beer - Hansa Pilsener Thumbnail">
+          <img src="assets/thumbnails/You Deserve a Beer Hansa Pilsener Hansa Radio 2 Thumbnail.png" alt="You deserve a beer - Hansa Pilsener Thumbnail" loading="lazy">
         </a>
         <a href="work/the-life-gumtree.html" class="grid-item" data-text="the life - gumtree">
-          <img src="assets/thumbnails/The Life Gumtree Thumbnail.png" alt="The life - Gumtree Thumbnail">
+          <img src="assets/thumbnails/The Life Gumtree Thumbnail.png" alt="The life - Gumtree Thumbnail" loading="lazy">
         </a>
         <a href="work/now-together-kfc.html" class="grid-item" data-text="now together - kfc">
-          <img src="assets/thumbnails/Now Together KFC Thumbnail.png" alt="Now together - KFC Thumbnail">
+          <img src="assets/thumbnails/Now Together KFC Thumbnail.png" alt="Now together - KFC Thumbnail" loading="lazy">
         </a>
       </section>
 
@@ -77,11 +80,38 @@
     document.addEventListener('DOMContentLoaded', function() {
       const hamburger = document.getElementById('hamburger');
       const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-      
+
       if (hamburger && mobileMenuOverlay) {
         hamburger.addEventListener('click', function() {
           hamburger.classList.toggle('active');
           mobileMenuOverlay.classList.toggle('active');
+        });
+      }
+
+      // Smooth image loading with Intersection Observer
+      if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              img.addEventListener('load', () => {
+                img.classList.add('loaded');
+              });
+              if (img.complete) {
+                img.classList.add('loaded');
+              }
+              observer.unobserve(img);
+            }
+          });
+        }, { rootMargin: '50px' });
+
+        document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+          imageObserver.observe(img);
+        });
+      } else {
+        // Fallback for browsers without Intersection Observer
+        document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+          img.classList.add('loaded');
         });
       }
     });

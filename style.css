@@ -3,6 +3,7 @@
   src: url('fonts/HelveticaNeue Medium.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -10,6 +11,7 @@
   src: url('fonts/HelveticaNeue Light.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -17,10 +19,22 @@
   src: url('fonts/Helvetica Neu Bold.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 * {
   text-transform: lowercase;
+}
+
+/* Optimize rendering performance */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  will-change: scroll-position;
 }
 
 :root {
@@ -67,9 +81,29 @@ p {
   height: auto;
   display: block;
   object-fit: cover;
-  transition: opacity 0.3s ease;
-  /* opacity 1000ms cubic-bezier(.33,0,.2,1); */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  background-color: #f5f5f5;
+  min-height: 200px;
+}
 
+.grid-item img[loading="lazy"] {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.grid-item img[loading="lazy"].loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optimize grid performance */
+.image-grid {
+  contain: layout style;
+}
+
+.grid-item {
+  contain: layout;
+  will-change: transform;
 }
 
 .grid-item:hover img {

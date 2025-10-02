@@ -7,6 +7,9 @@ permalink: /projects/
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Personal Projects | Daniel Fisher</title>
+  <link rel="preload" href="fonts/HelveticaNeue Medium.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/HelveticaNeue Light.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/Helvetica Neu Bold.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -41,20 +44,20 @@ permalink: /projects/
   <!-- Main content -->
   <main class="content-grid">
       <section class="image-grid">
-        <a href="projects/project-1.html" class="grid-item" data-text="say sorry first">
-          <img src="assets/thumbnails/Project Assets/Project One.png" alt="Say sorry first Thumbnail">
+        <a href="projects/say-sorry-first.html" class="grid-item" data-text="say sorry first">
+          <img src="assets/thumbnails/Project Assets/Project One.png" alt="Say sorry first Thumbnail" loading="lazy">
         </a>
-        <a href="projects/project-2.html" class="grid-item" data-text="i can stop whenever i want to">
-          <img src="assets/thumbnails/Project Assets/Project Two Thumbail.jpg" alt="I can stop whenever I want to Thumbnail">
+        <a href="projects/i-can-stop-whenever-i-want-to.html" class="grid-item" data-text="i can stop whenever i want to">
+          <img src="assets/thumbnails/Project Assets/Project Two Thumbail.jpg" alt="I can stop whenever I want to Thumbnail" loading="lazy">
         </a>
-        <a href="projects/project-3.html" class="grid-item" data-text="woman love me">
-          <img src="assets/thumbnails/Project Assets/Project Three Thumbnail .png" alt="Woman love me Thumbnail">
+        <a href="projects/woman-love-me.html" class="grid-item" data-text="woman love me">
+          <img src="assets/thumbnails/Project Assets/Project Three Thumbnail .png" alt="Woman love me Thumbnail" loading="lazy">
         </a>
-        <a href="projects/project-4.html" class="grid-item" data-text="a strange old man">
-          <img src="assets/thumbnails/Project Assets/Project Four Thumbnail.png" alt="A strange old man Thumbnail">
+        <a href="projects/a-strange-old-man.html" class="grid-item" data-text="a strange old man">
+          <img src="assets/thumbnails/Project Assets/Project Four Thumbnail.png" alt="A strange old man Thumbnail" loading="lazy">
         </a>
-        <a href="projects/project-5.html" class="grid-item" data-text="random sketches">
-          <img src="assets/thumbnails/Project Assets/Project Five Thumbnail.png" alt="Random sketches Thumbnail">
+        <a href="projects/random-sketches.html" class="grid-item" data-text="random sketches">
+          <img src="assets/thumbnails/Project Assets/Project Five Thumbnail.png" alt="Random sketches Thumbnail" loading="lazy">
         </a>
       </section>
   </main>
@@ -64,11 +67,38 @@ permalink: /projects/
     document.addEventListener('DOMContentLoaded', function() {
       const hamburger = document.getElementById('hamburger');
       const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-      
+
       if (hamburger && mobileMenuOverlay) {
         hamburger.addEventListener('click', function() {
           hamburger.classList.toggle('active');
           mobileMenuOverlay.classList.toggle('active');
+        });
+      }
+
+      // Smooth image loading with Intersection Observer
+      if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              img.addEventListener('load', () => {
+                img.classList.add('loaded');
+              });
+              if (img.complete) {
+                img.classList.add('loaded');
+              }
+              observer.unobserve(img);
+            }
+          });
+        }, { rootMargin: '50px' });
+
+        document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+          imageObserver.observe(img);
+        });
+      } else {
+        // Fallback for browsers without Intersection Observer
+        document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+          img.classList.add('loaded');
         });
       }
     });
