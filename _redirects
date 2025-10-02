@@ -1,0 +1,28 @@
+# Netlify redirects file
+# Clean URLs - remove .html extension
+
+# Redirect .html to clean URLs
+/about.html         /about          301
+/projects.html      /projects       301
+
+# Project redirects
+/projects/say-sorry-first.html                      /projects/say-sorry-first                  301
+/projects/i-can-stop-whenever-i-want-to.html        /projects/i-can-stop-whenever-i-want-to    301
+/projects/woman-love-me.html                        /projects/woman-love-me                     301
+/projects/a-strange-old-man.html                    /projects/a-strange-old-man                301
+/projects/random-sketches.html                      /projects/random-sketches                   301
+
+# Work redirects
+/work/breathe-out-proudly-clorets.html              /work/breathe-out-proudly-clorets          301
+/work/have-they-skipped-hansa-pilsener.html         /work/have-they-skipped-hansa-pilsener     301
+/work/now-together-kfc.html                         /work/now-together-kfc                     301
+/work/so-good-youll-find-a-reason-uber-black.html   /work/so-good-youll-find-a-reason-uber-black 301
+/work/the-brash-effect-brash.html                   /work/the-brash-effect-brash               301
+/work/the-life-gumtree.html                         /work/the-life-gumtree                     301
+/work/theres-a-beer-for-you-hansa-pilsener.html     /work/theres-a-beer-for-you-hansa-pilsener 301
+/work/too-good-not-to-tell-someone-uber-one.html    /work/too-good-not-to-tell-someone-uber-one 301
+/work/what-you-cant-get-engen.html                  /work/what-you-cant-get-engen              301
+/work/you-deserve-a-beer-hansa-pilsener.html        /work/you-deserve-a-beer-hansa-pilsener    301
+
+# Fallback - serve HTML files for clean URLs
+/*              /index.html   200
