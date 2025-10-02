@@ -393,6 +393,7 @@ body {
       box-shadow: 0 16px 64px rgba(29, 185, 84, 0.3);
       width: 320px;
       max-width: 90%;
+      margin-top: 16px;
     }
 
     .album-art-large {
@@ -508,6 +509,3 @@ body {
       fill: #fff !important;
     }
 
-    #nextBtn {
-      opacity: 1; 
-    }
