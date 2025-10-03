@@ -235,6 +235,33 @@ permalink: /projects/project-5/
       });
     });
 
+    // Smooth image loading with Intersection Observer
+    if ('IntersectionObserver' in window) {
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.addEventListener('load', () => {
+              img.classList.add('loaded');
+            });
+            if (img.complete) {
+              img.classList.add('loaded');
+            }
+            observer.unobserve(img);
+          }
+        });
+      }, { rootMargin: '50px' });
+
+      document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+        imageObserver.observe(img);
+      });
+    } else {
+      // Fallback for browsers without Intersection Observer
+      document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+        img.classList.add('loaded');
+      });
+    }
+
     // Mobile hamburger menu functionality
     const hamburger = document.getElementById('hamburger');
     const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
