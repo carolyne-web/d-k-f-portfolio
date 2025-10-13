@@ -173,14 +173,14 @@ body {
   font-family: 'HelveticaNeue Bold';
   color: var(--primary-orange);
   font-size: 1rem;
-  line-height: 0em;
+  line-height: 1em;
   letter-spacing: -.04em;
 }
 
 .site-nav {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   padding-left: 3vw;
   padding-right: 3vw;
   margin: 3vw auto;
@@ -192,7 +192,11 @@ body {
   gap: 10px;
 }
 
-
+.head-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
 .head-right a {
   transition: color 0.3s ease;
@@ -425,13 +429,12 @@ body {
 .spotify-mobile-player {
       background: linear-gradient(135deg, #ED462F, #bd6a5f);
       border-radius: 16px;
-      padding: 32px;
+      padding: 20px;
       color: white;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      box-shadow: 0 16px 64px rgba(29, 185, 84, 0.3);
       width: 320px;
       max-width: 90%;
       margin-top: 16px;
@@ -525,7 +528,7 @@ body {
       width: 64px;
       height: 64px;
       border-radius: 50%;
-      background: black;
+      background: #0000003b;
       border: none;
       cursor: pointer;
       display: flex;
