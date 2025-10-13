@@ -189,13 +189,13 @@ body {
 .head-left {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .head-right {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .head-right a {
@@ -203,7 +203,7 @@ body {
   font-size: 1rem;
   color: var(--text-gray);
   text-decoration: none;
-  margin-left: 8px;
+  /* margin-left: 8px; */
   font-family: 'HelveticaNeue Bold';
   letter-spacing: -.01em;
   line-height: 1em;
