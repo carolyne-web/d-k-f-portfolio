@@ -180,7 +180,7 @@ body {
 .site-nav {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: baseline;
   padding-left: 3vw;
   padding-right: 3vw;
   margin: 3vw auto;
@@ -525,7 +525,7 @@ body {
       width: 64px;
       height: 64px;
       border-radius: 50%;
-      background: white;
+      background: black;
       border: none;
       cursor: pointer;
       display: flex;
@@ -535,7 +535,7 @@ body {
     }
 
     .play-btn-mobile svg {
-      fill: #0000;
+      fill: white;
     }
 
     .tooltip-container {
@@ -546,8 +546,8 @@ body {
     .tooltip {
       visibility: hidden;
       width: 70px;
-      background: linear-gradient(135deg, #333, #000);
-      color: white;
+      background: white;
+      color: black;
       text-align: center;
       border-radius: 20px;
       padding: 8px 12px;
@@ -562,7 +562,7 @@ body {
       font-size: 11px;
       font-weight: 500;
       letter-spacing: 0.5px;
-      box-shadow: 0 8px 25px rgba(29, 185, 84, 0.3);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
       font-family: 'HelveticaNeue Medium', Arial, sans-serif;
     }
 
@@ -574,8 +574,8 @@ body {
       margin-left: -6px;
       border-width: 6px;
       border-style: solid;
-      border-color: #1db954 transparent transparent transparent;
-      filter: drop-shadow(0 2px 4px rgba(29, 185, 84, 0.2));
+      border-color: white transparent transparent transparent;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
     }
 
     .tooltip-container:hover .tooltip {
