@@ -423,7 +423,7 @@ body {
 
 
 .spotify-mobile-player {
-      background: linear-gradient(135deg, #1db954, #1ed760);
+      background: linear-gradient(135deg, #ED462F, #bd6a5f);
       border-radius: 16px;
       padding: 32px;
       color: white;
@@ -535,7 +535,7 @@ body {
     }
 
     .play-btn-mobile svg {
-      fill: #1db954;
+      fill: #0000;
     }
 
     .tooltip-container {
@@ -546,7 +546,7 @@ body {
     .tooltip {
       visibility: hidden;
       width: 70px;
-      background: linear-gradient(135deg, #1db954, #1ed760);
+      background: linear-gradient(135deg, #333, #000);
       color: white;
       text-align: center;
       border-radius: 20px;
